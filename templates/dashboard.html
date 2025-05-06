@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flare Guard Dashboard</title>
+    <link rel="icon" type="image/png" href="/static/logo.png">
+    <link rel="stylesheet" href="/static/dashboard.css">
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <div class="logo-container">
+                <img src="/static/logo.png" alt="Flare Guard Logo" class="logo">
+                <h1>Flare Guard Dashboard</h1>
+            </div>
+            <div class="system-controls">
+                <button id="startBtn" class="btn btn-start">Start Detection</button>
+                <button id="stopBtn" class="btn btn-stop" disabled>Stop Detection</button>
+            </div>
+        </header>
+        
+        <div class="dashboard-content">
+            <div class="main-panel">
+                <div class="video-container">
+                    <h2>Live Detection</h2>
+                    <div class="video-feed">
+                        <img id="videoStream" src="" alt="Video Stream">
+                        <div id="detectionOverlay" class="detection-overlay">No Detection</div>
+                    </div>
+                </div>
+                
+                <div class="stats-container">
+                    <h2>Detection Statistics</h2>
+                    <div class="stats-panels">
+                        <div class="stat-card">
+                            <h3>Fire Detections</h3>
+                            <p id="fireCount">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Smoke Detections</h3>
+                            <p id="smokeCount">0</p>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="detectionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="side-panel">
+                <div class="model-info">
+                    <h2>Model Information</h2>
+                    <table>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Value</th>
+                        </tr>
+                        <tr>
+                            <td>Model</td>
+                            <td id="modelName">Loading...</td>
+                        </tr>
+                        <tr>
+                            <td>Confidence Threshold</td>
+                            <td id="confidenceThreshold">Loading...</td>
+                        </tr>
+                        <tr>
+                            <td>IOU Threshold</td>
+                            <td id="iouThreshold">Loading...</td>
+                        </tr>
+                        <tr>
+                            <td>Video Source</td>
+                            <td id="videoSource">Loading...</td>
+                        </tr>
+                        <tr>
+                            <td>Alert Cooldown</td>
+                            <td id="alertCooldown">Loading...</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="log-container">
+                    <h2>Detection Logs</h2>
+                    <div id="logEntries" class="log-entries"></div>
+                </div>
+                
+                <div class="alert-history">
+                    <h2>Recent Alerts</h2>
+                    <ul id="alertList" class="alert-list"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/dashboard.js"></script>
+</body>
+</html>
