@@ -6,7 +6,7 @@ import time
 import json
 from datetime import datetime
 from pathlib import Path
-from flask import Flask, render_template, Response, jsonify, request
+from flask import Flask, render_template, Response, jsonify, request, redirect, url_for
 from flask_socketio import SocketIO, emit
 
 # Import existing components
@@ -19,17 +19,18 @@ app = Flask(__name__,
             static_folder='static',
             template_folder='templates')
 app.config['SECRET_KEY'] = os.urandom(24)
-socketio = SocketIO(app, cors_allowed_origins="*")
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode='threading')
 
 # Global variables
 frame_buffer = None
 detection_status = None
 latest_logs = []
 detection_count = {"Fire": 0, "Smoke": 0}
+stats_lock = threading.Lock()  # Lock for thread-safe stats updates
 system_active = False
 processing_thread = None
 alert_cooldown = Config.ALERT_COOLDOWN
-last_alert_time = 0
+last_alert_time = 0  # Initialize the last alert time
 
 # Initialize system components
 setup_logging()
@@ -66,7 +67,7 @@ def get_logs():
 
 def generate_frames():
     """Generate frames from video source with detection overlay"""
-    global frame_buffer, detection_status
+    global frame_buffer, detection_status, last_alert_time
     
     # Use OpenCV to capture video
     if str(Config.VIDEO_SOURCE).isdigit():
@@ -80,7 +81,17 @@ def generate_frames():
     
     logger.info(f"Started video processing from: {Config.VIDEO_SOURCE}")
     
+    frame_count = 0
     while system_active:
+        # Check if we should exit early
+        if not system_active:
+            break
+            
+        # Check system_active more frequently
+        frame_count += 1
+        if frame_count % 10 == 0 and not system_active:
+            break
+            
         success, frame = cap.read()
         if not success:
             # If video file ends, loop back to beginning
@@ -91,15 +102,23 @@ def generate_frames():
         processed_frame, detection = detector.process_frame(frame)
         frame_buffer = processed_frame.copy()
         
+        # Update detection status when it changes
         if detection != detection_status:
+            old_status = detection_status
             detection_status = detection
+            
             if detection:
-                logger.info(f"Detection status changed: {detection}")
-                socketio.emit('detection_update', {'status': detection})
+                # Use a lock when updating the detection count
+                with stats_lock:
+                    # Explicitly increment detection count
+                    if detection == "Fire":
+                        detection_count["Fire"] = detection_count.get("Fire", 0) + 1
+                    elif detection == "Smoke":
+                        detection_count["Smoke"] = detection_count.get("Smoke", 0) + 1
                 
-                # Handle detection counting
-                detection_count[detection] = detection_count.get(detection, 0) + 1
-                socketio.emit('stats_update', detection_count)
+                # Emit the updated counts
+                socketio.emit('detection_update', {'status': detection})
+                socketio.emit('stats_update', dict(detection_count))
                 
                 # Alert logic with cooldown
                 current_time = time.time()
@@ -108,8 +127,12 @@ def generate_frames():
                     notification_service.send_alert(processed_frame, detection)
                     socketio.emit('alert_sent', {'type': detection, 'time': datetime.now().strftime('%H:%M:%S')})
                     last_alert_time = current_time
+
+        # Force emit stats periodically (every 30 frames)
+        if frame_count % 30 == 0:
+            socketio.emit('stats_update', dict(detection_count))
         
-        # Convert the frame to JPEG format
+        # Convert to JPEG format
         ret, buffer = cv2.imencode('.jpg', processed_frame)
         if not ret:
             continue
@@ -124,8 +147,23 @@ def generate_frames():
 
 def process_video():
     """Background thread for video processing"""
-    for _ in generate_frames():
-        pass
+    frame_gen = generate_frames()
+    try:
+        # Use a local flag that's checked more frequently
+        local_active = True
+        while local_active and system_active:
+            try:
+                next(frame_gen)
+                # Check if we should stop - check both global and local flag
+                local_active = system_active
+                # Add a small sleep to prevent CPU hogging
+                time.sleep(0.01)
+            except StopIteration:
+                break
+    except Exception as e:
+        logger.error(f"Error in video processing: {str(e)}")
+    finally:
+        logger.info("Video processing thread completed")
 
 @app.route('/')
 def index():
@@ -147,8 +185,10 @@ def api_logs():
 def api_stats():
     """Return detection statistics"""
     global detection_count
+    with stats_lock:
+        current_counts = dict(detection_count)
     return jsonify({
-        'detections': detection_count,
+        'detections': current_counts,
         'model': {
             'name': Config.MODEL_PATH.name,
             'confidence_threshold': detector.min_confidence,
@@ -161,12 +201,21 @@ def api_stats():
         }
     })
 
+@app.route('/api/detection_counts', methods=['GET'])
+def api_detection_counts():
+    """Return current detection counts"""
+    global detection_count
+    with stats_lock:
+        current_counts = dict(detection_count)
+    return jsonify(current_counts)
+
 @app.route('/api/control', methods=['POST'])
 def api_control():
     """Control system operation"""
     global system_active, processing_thread
     
     action = request.json.get('action')
+    logger.info(f"Control action received: {action}")
     
     if action == 'start' and not system_active:
         system_active = True
@@ -174,22 +223,64 @@ def api_control():
         processing_thread.daemon = True
         processing_thread.start()
         logger.info("System started")
+        
+        # Broadcasting system active state to all clients
+        socketio.emit('system_status', {'active': True})
+        
         return jsonify({'status': 'started'})
         
     elif action == 'stop' and system_active:
+        # First set the flag to stop the thread
         system_active = False
-        if processing_thread:
-            processing_thread.join(timeout=1.0)
+        
+        # Wait for thread to terminate (with timeout)
+        if processing_thread and processing_thread.is_alive():
+            try:
+                processing_thread.join(timeout=3.0)
+            except Exception as e:
+                logger.error(f"Error joining thread: {str(e)}")
+        
+        # Broadcasting system inactive state to all clients
+        socketio.emit('system_status', {'active': False})
+        
         logger.info("System stopped")
         return jsonify({'status': 'stopped'})
         
     return jsonify({'status': 'unchanged'})
 
+@app.route('/reset')
+def reset_system():
+    """Emergency reset of the system"""
+    global system_active, processing_thread, detection_count
+    
+    logger.warning("Emergency reset requested")
+    
+    # Reset all state
+    system_active = False
+    with stats_lock:
+        detection_count = {"Fire": 0, "Smoke": 0}
+    
+    # Try to terminate thread
+    if processing_thread and processing_thread.is_alive():
+        try:
+            processing_thread.join(timeout=1.0)
+        except Exception as e:
+            logger.error(f"Error joining thread during reset: {str(e)}")
+    
+    socketio.emit('system_status', {'active': False})
+    socketio.emit('stats_update', detection_count)
+    
+    return redirect(url_for('index'))
+
 @socketio.on('connect')
 def handle_connect():
     """Handle client connection"""
-    emit('stats_update', detection_count)
+    logger.info("Socket client connected")
+    with stats_lock:
+        current_counts = dict(detection_count)
+    emit('stats_update', current_counts)
     emit('system_status', {'active': system_active})
 
 if __name__ == '__main__':
+    logger.info("Starting application")
     socketio.run(app, host='0.0.0.0', port=5000, debug=True)

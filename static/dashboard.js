@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Connect to Socket.IO server
     const socket = io();
     
+    // State tracking
+    let isSystemRunning = false;
+    
     // Elements
     const videoStream = document.getElementById('videoStream');
     const detectionOverlay = document.getElementById('detectionOverlay');
@@ -12,11 +15,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const alertList = document.getElementById('alertList');
     const startBtn = document.getElementById('startBtn');
     const stopBtn = document.getElementById('stopBtn');
+    const resetBtn = document.getElementById('resetBtn');
     const modelName = document.getElementById('modelName');
     const confidenceThreshold = document.getElementById('confidenceThreshold');
     const iouThreshold = document.getElementById('iouThreshold');
     const videoSource = document.getElementById('videoSource');
     const alertCooldown = document.getElementById('alertCooldown');
+    
+    // Stats synchronization function
+    function syncStats() {
+        fetch('/api/detection_counts')
+            .then(response => response.json())
+            .then(data => {
+                // Always update the UI with the latest data from server
+                fireCount.textContent = data.Fire || 0;
+                smokeCount.textContent = data.Smoke || 0;
+                
+                // Update chart
+                detectionChart.data.datasets[0].data = [
+                    data.Fire || 0,
+                    data.Smoke || 0
+                ];
+                detectionChart.update();
+            })
+            .catch(error => console.error('Error syncing stats:', error));
+    }
     
     // Chart setup
     const ctx = document.getElementById('detectionChart').getContext('2d');
@@ -52,6 +75,35 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
+    // Function to update stats display
+    function updateStats(data) {
+        fireCount.textContent = data.Fire || 0;
+        smokeCount.textContent = data.Smoke || 0;
+        updateChart();
+    }
+    
+    function updateChart() {
+        detectionChart.data.datasets[0].data = [
+            parseInt(fireCount.textContent) || 0,
+            parseInt(smokeCount.textContent) || 0
+        ];
+        detectionChart.update();
+    }
+    
+    // Function to update system status
+    function updateSystemStatus(isActive) {
+        const statusIndicator = document.getElementById('statusIndicator');
+        const statusText = document.getElementById('statusText');
+        
+        if (isActive) {
+            statusIndicator.className = 'status-indicator online';
+            statusText.textContent = 'System Active';
+        } else {
+            statusIndicator.className = 'status-indicator offline';
+            statusText.textContent = 'System Offline';
+        }
+    }
+    
     // Fetch initial data
     fetchStats();
     fetchLogs();
@@ -79,15 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     socket.on('stats_update', function(data) {
-        fireCount.textContent = data.Fire || 0;
-        smokeCount.textContent = data.Smoke || 0;
-        
-        // Update chart
-        detectionChart.data.datasets[0].data = [
-            data.Fire || 0,
-            data.Smoke || 0
-        ];
-        detectionChart.update();
+        updateStats(data);
     });
     
     socket.on('log_update', function(data) {
@@ -99,6 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     socket.on('system_status', function(data) {
+        isSystemRunning = data.active;
         updateControlButtons(data.active);
     });
     
@@ -116,13 +161,23 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             if (data.status === 'started') {
+                isSystemRunning = true;
                 updateControlButtons(true);
-                videoStream.src = "/video_feed";
+                
+                // Force reload the video stream
+                videoStream.src = "/video_feed" + "?t=" + new Date().getTime();
             }
         });
     });
     
     stopBtn.addEventListener('click', function() {
+        // First update UI to prevent multiple clicks
+        updateControlButtons(false);
+        
+        // Display stopping message
+        detectionOverlay.textContent = 'Stopping Detection...';
+        detectionOverlay.style.backgroundColor = "rgba(255, 165, 0, 0.7)";
+        
         fetch('/api/control', {
             method: 'POST',
             headers: {
@@ -135,11 +190,53 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             if (data.status === 'stopped') {
-                updateControlButtons(false);
-                // Stop video but keep last frame
-                // videoStream.src = "";
+                isSystemRunning = false;
+                
+                // Update the detection overlay
+                detectionOverlay.textContent = 'Detection Stopped';
+                detectionOverlay.className = 'detection-overlay';
+                
+                // Force page reload after short delay
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
+            } else {
+                alert("Failed to stop detection. Reloading page...");
+                window.location.reload();
+            }
+        })
+        .catch(error => {
+            console.error("Error stopping detection:", error);
+            alert("Error stopping detection. Reloading page...");
+            window.location.reload();
+        });
+    });
+    
+    // Add reset button event listener if it exists
+    if (resetBtn) {
+        resetBtn.addEventListener('click', function() {
+            if (confirm('Are you sure you want to reset the system? This will clear all state.')) {
+                window.location.href = '/reset';
             }
         });
+    }
+    
+    // Cleanup on page unload
+    window.addEventListener('beforeunload', function() {
+        // Try to stop the system when leaving the page
+        if (stopBtn.disabled === false) {
+            fetch('/api/control', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    action: 'stop'
+                }),
+                // Use keepalive to ensure the request completes even if the page is unloading
+                keepalive: true
+            });
+        }
     });
     
     // Functions
@@ -148,15 +245,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(data => {
                 // Update detection counts
-                fireCount.textContent = data.detections.Fire || 0;
-                smokeCount.textContent = data.detections.Smoke || 0;
-                
-                // Update chart
-                detectionChart.data.datasets[0].data = [
-                    data.detections.Fire || 0,
-                    data.detections.Smoke || 0
-                ];
-                detectionChart.update();
+                updateStats(data.detections);
                 
                 // Update model info
                 modelName.textContent = data.model.name;
@@ -166,6 +255,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 alertCooldown.textContent = `${data.system.alert_cooldown} seconds`;
                 
                 // Update system status
+                isSystemRunning = data.system.active;
                 updateControlButtons(data.system.active);
             });
     }
@@ -222,8 +312,11 @@ document.addEventListener('DOMContentLoaded', function() {
             startBtn.disabled = false;
             stopBtn.disabled = true;
         }
+        updateSystemStatus(isActive);
     }
     
-    // Refresh stats every 10 seconds
-    setInterval(fetchStats, 10000);
+    // Call syncStats on load and set up polling intervals
+    syncStats();
+    setInterval(syncStats, 3000);  // Sync stats every 3 seconds for reliability
+    setInterval(fetchStats, 10000); // Refresh all stats every 10 seconds
 });

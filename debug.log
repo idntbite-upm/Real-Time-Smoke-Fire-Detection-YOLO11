@@ -1,0 +1,53 @@
+2025-05-06 12:03:22,414 - src.fire_detector - INFO - Fire detector initialized successfully
+2025-05-06 12:03:22,414 - asyncio - DEBUG - Using selector: EpollSelector
+2025-05-06 12:03:22,415 - src.notification_service - INFO - WhatsApp service initialized
+2025-05-06 12:03:22,415 - src.notification_service - ERROR - Telegram setup failed: module 'telegram' has no attribute 'Bot'
+2025-05-06 12:03:22,416 - __main__ - INFO - Starting debug server
+2025-05-06 12:03:22,430 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.29.89.241:5000
+2025-05-06 12:03:22,430 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-06 12:03:22,431 - werkzeug - INFO -  * Restarting with stat
+2025-05-06 12:03:24,696 - src.fire_detector - INFO - Fire detector initialized successfully
+2025-05-06 12:03:24,696 - asyncio - DEBUG - Using selector: EpollSelector
+2025-05-06 12:03:24,697 - src.notification_service - INFO - WhatsApp service initialized
+2025-05-06 12:03:24,697 - src.notification_service - ERROR - Telegram setup failed: module 'telegram' has no attribute 'Bot'
+2025-05-06 12:03:24,698 - __main__ - INFO - Starting debug server
+2025-05-06 12:03:24,703 - werkzeug - WARNING -  * Debugger is active!
+2025-05-06 12:03:24,703 - werkzeug - INFO -  * Debugger PIN: 334-432-354
+2025-05-06 12:03:31,271 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 12:03:31] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-05-06 12:03:31,314 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 12:03:31] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-05-06 12:03:31,315 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 12:03:31] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-05-06 12:03:31,345 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 12:03:31] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-05-06 12:03:31,347 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 12:03:31] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=2vbDM6JnJMUVtI5xeYyL HTTP/1.1" 200 -
+2025-05-06 12:04:16,028 - werkzeug - INFO - 172.29.80.1 - - [06/May/2025 12:04:16] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-05-06 12:04:16,104 - werkzeug - INFO - 172.29.80.1 - - [06/May/2025 12:04:16] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-05-06 12:04:16,105 - werkzeug - INFO - 172.29.80.1 - - [06/May/2025 12:04:16] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-05-06 12:04:16,140 - werkzeug - INFO - 172.29.80.1 - - [06/May/2025 12:04:16] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-05-06 12:04:58,042 - src.fire_detector - INFO - Fire detector initialized successfully
+2025-05-06 12:04:58,042 - asyncio - DEBUG - Using selector: EpollSelector
+2025-05-06 12:04:58,043 - src.notification_service - INFO - WhatsApp service initialized
+2025-05-06 12:04:58,043 - src.notification_service - ERROR - Telegram setup failed: module 'telegram' has no attribute 'Bot'
+2025-05-06 12:04:58,044 - __main__ - INFO - Starting debug server
+2025-05-06 12:04:58,053 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.29.89.241:5000
+2025-05-06 12:04:58,053 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-06 12:04:58,054 - werkzeug - INFO -  * Restarting with stat
+2025-05-06 12:05:00,609 - src.fire_detector - INFO - Fire detector initialized successfully
+2025-05-06 12:05:00,610 - asyncio - DEBUG - Using selector: EpollSelector
+2025-05-06 12:05:00,610 - src.notification_service - INFO - WhatsApp service initialized
+2025-05-06 12:05:00,610 - src.notification_service - ERROR - Telegram setup failed: module 'telegram' has no attribute 'Bot'
+2025-05-06 12:05:00,612 - __main__ - INFO - Starting debug server
+2025-05-06 12:05:00,616 - werkzeug - WARNING -  * Debugger is active!
+2025-05-06 12:05:00,616 - werkzeug - INFO -  * Debugger PIN: 334-432-354
+2025-05-06 12:05:03,049 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 12:05:03] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-05-06 12:05:03,077 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 12:05:03] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:05:03,079 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 12:05:03] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-05-06 12:05:03,094 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 12:05:03] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=alRTmwq44CDkrzlLApmT HTTP/1.1" 200 -
+2025-05-06 12:05:07,177 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 12:05:07] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-05-06 12:05:07,221 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 12:05:07] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:05:07,221 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 12:05:07] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-05-06 12:05:07,267 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 12:05:07] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png&s=alRTmwq44CDkrzlLApmT HTTP/1.1[0m" 304 -
