@@ -15,7 +15,12 @@ from dotenv import load_dotenv
 from urllib.parse import quote_plus
 from filelock import FileLock
 from io import BytesIO
+from twilio.rest import Client  # For Twilio WhatsApp
 
+# Add GCS imports
+from google.cloud import storage
+from google.oauth2 import service_account
+import uuid
 
 # Setup environment and logging
 PROJECT_ROOT = Path(__file__).parent.parent
@@ -33,17 +38,82 @@ class NotificationService:
         self.loop = asyncio.new_event_loop()
         asyncio.set_event_loop(self.loop)
         self._init_services()
+        self._init_gcs()
+
+    def _init_gcs(self):
+        """Initialize Google Cloud Storage client"""
+        try:
+            # Get GCS credentials from env
+            gcs_key_path = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
+            bucket_name = os.getenv('GCS_BUCKET_NAME')
+            
+            if not gcs_key_path or not bucket_name:
+                logger.warning("GCS credentials or bucket name missing, GCS storage disabled")
+                self.gcs_enabled = False
+                return
+                
+            # Initialize GCS client
+            if Path(gcs_key_path).exists():
+                self.credentials = service_account.Credentials.from_service_account_file(gcs_key_path)
+                self.storage_client = storage.Client(credentials=self.credentials)
+                self.bucket = self.storage_client.bucket(bucket_name)
+                self.gcs_enabled = True
+                self.gcs_bucket_name = bucket_name
+                logger.info(f"GCS initialized with bucket: {bucket_name}")
+            else:
+                logger.error(f"GCS credentials file not found: {gcs_key_path}")
+                self.gcs_enabled = False
+        except Exception as e:
+            logger.error(f"GCS initialization failed: {str(e)}")
+            self.gcs_enabled = False
 
     def _init_services(self):
         """Initialize and validate notification providers"""
-        # WhatsApp initialization
-        if all([os.getenv("CALLMEBOT_API_KEY"), os.getenv("RECEIVER_WHATSAPP_NUMBER")]):
-            self.whatsapp_enabled = True
-            self.base_url = "https://api.callmebot.com/whatsapp.php"
-            logger.info("WhatsApp service initialized")
+        # Twilio WhatsApp initialization
+        twilio_sid = os.getenv("TWILIO_ACCOUNT_SID")
+        twilio_token = os.getenv("TWILIO_AUTH_TOKEN")
+        twilio_number = os.getenv("TWILIO_WHATSAPP_NUMBER")
+        receiver = os.getenv("RECEIVER_WHATSAPP_NUMBER")
+        
+        if all([twilio_sid, twilio_token, twilio_number, receiver]):
+            try:
+                self.twilio_client = Client(twilio_sid, twilio_token)
+                # Format numbers for WhatsApp API (whatsapp: prefix)
+                if not twilio_number.startswith('whatsapp:'):
+                    self.twilio_whatsapp_number = f"whatsapp:{twilio_number}"
+                else:
+                    self.twilio_whatsapp_number = twilio_number
+                    
+                # Make sure the receiver number has correct format
+                if not receiver.startswith('whatsapp:'):
+                    if not receiver.startswith('+'):
+                        self.receiver_whatsapp_number = f"whatsapp:+{receiver}"
+                    else:
+                        self.receiver_whatsapp_number = f"whatsapp:{receiver}"
+                else:
+                    self.receiver_whatsapp_number = receiver
+                    
+                self.whatsapp_enabled = True
+                self.use_twilio = True
+                logger.info("Twilio WhatsApp service initialized")
+            except Exception as e:
+                logger.error(f"Twilio WhatsApp initialization failed: {e}")
+                self.whatsapp_enabled = False
+                self.use_twilio = False
         else:
+            self.use_twilio = False
+            logger.info("Twilio WhatsApp not configured")
+        
+        # Fallback to CallMeBot if Twilio is not available
+        if all([os.getenv("CALLMEBOT_API_KEY"), os.getenv("RECEIVER_WHATSAPP_NUMBER")]) and not self.use_twilio:
+            self.whatsapp_enabled = True
+            self.use_callmebot = True
+            self.base_url = "https://api.callmebot.com/whatsapp.php"
+            logger.info("CallMeBot WhatsApp service initialized (legacy fallback)")
+        elif not self.use_twilio:
             self.whatsapp_enabled = False
-            logger.warning("WhatsApp alerts disabled: Missing credentials")
+            self.use_callmebot = False
+            logger.warning("WhatsApp alerts disabled: No WhatsApp service available")
 
         # Telegram initialization
         if token := os.getenv("TELEGRAM_TOKEN"):
@@ -59,7 +129,6 @@ class NotificationService:
         else:
             logger.info("Telegram alerts disabled: Missing token")
 
-
     async def _init_telegram(self):
         """Async initialization for Telegram"""
         await self.telegram_bot.initialize()
@@ -72,25 +141,80 @@ class NotificationService:
         cv2.imwrite(str(filename), frame)
         return filename
 
-    def upload_image(self, image_path: Path) -> str:
-        """Upload image to Imgur CDN"""
+    def upload_to_gcs(self, image_path: Path) -> str:
+        """Upload image to Google Cloud Storage"""
+        if not self.gcs_enabled:
+            logger.warning("GCS upload skipped: GCS not enabled")
+            return None
+            
         try:
-            response = requests.post(
-                'https://api.imgur.com/3/image',
-                headers={
-                    'Authorization': f'Client-ID {self.config.IMGUR_CLIENT_ID}'},
-                files={'image': (image_path.open('rb'), 'image/jpg')},
-                timeout=10
-            )
+            # Create a unique blob name with timestamp
+            timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+            unique_id = str(uuid.uuid4())[:8]
+            blob_name = f"fire_alerts/{timestamp}_{unique_id}.jpg"
+            
+            # Create a new blob and upload the file
+            blob = self.bucket.blob(blob_name)
+            blob.upload_from_filename(str(image_path))
+            
+            # Make the blob publicly accessible (optional, based on your security needs)
+            blob.make_public()
+            
+            # Get the public URL
+            image_url = blob.public_url
+            logger.info(f"Image uploaded to GCS: {image_url}")
+            return image_url
+            
+        except Exception as e:
+            logger.error(f"GCS upload error: {str(e)}")
+            return None
+
+    def upload_image(self, image_path: Path) -> str:
+        """Upload image, using GCS with Imgur fallback"""
+        # First try GCS if enabled
+        if hasattr(self, 'gcs_enabled') and self.gcs_enabled:
+            image_url = self.upload_to_gcs(image_path)
+            if image_url:
+                return image_url
+            logger.warning("GCS upload failed, falling back to Imgur")
+        
+        # Fallback to Imgur
+        try:
+            # Ensure the file exists
+            if not image_path.exists():
+                logger.error(f"Image path does not exist: {image_path}")
+                return None
+                
+            # Open file properly for uploading
+            with open(image_path, 'rb') as image_file:
+                # Read the file content
+                image_data = image_file.read()
+                
+                # Send the image data to Imgur
+                response = requests.post(
+                    'https://api.imgur.com/3/image',
+                    headers={
+                        'Authorization': f'Client-ID {self.config.IMGUR_CLIENT_ID}'
+                    },
+                    files={'image': ('image.jpg', image_data, 'image/jpeg')},
+                    timeout=10
+                )
+                
             response.raise_for_status()
             data = response.json().get('data', {})
             if 'link' not in data:
-            	logger.error("Imgur response missing 'link'")
-            	return None
+                logger.error("Imgur response missing 'link'")
+                return None
             return data['link']
         except requests.exceptions.HTTPError as e:
-            error_msg = response.json().get('data', {}).get('error', 'Unknown error')
-            logger.error(f"Imgur Error: {error_msg}")
+            try:
+                error_msg = response.json().get('data', {}).get('error', 'Unknown error')
+                logger.error(f"Imgur Error: {error_msg}")
+            except:
+                logger.error(f"HTTP Error: {str(e)}")
+            return None
+        except Exception as e:
+            logger.error(f"Image upload failed: {str(e)}")
             return None
 
     def send_alert(self, frame, detection: str = "Fire") -> bool:
@@ -116,30 +240,77 @@ class NotificationService:
         """Background alert processing"""
         if self.whatsapp_enabled:
             self._send_whatsapp_alert(image_path, detection)
-        if self.telegram_bot:
+        if hasattr(self, 'telegram_bot') and self.telegram_bot:
             self._send_telegram_alert(image_path, detection)
 
     def _send_whatsapp_alert(self, image_path, detection):
-        """Handle WhatsApp notification flow"""
-        image_url = self.upload_image(image_path)
-        if not image_url:
-            logger.error("WhatsApp alert skipped: Image upload failed")
+        """Handle WhatsApp notification with multiple fallback options"""
+        try:
+            # Upload the image
+            image_url = self.upload_image(image_path)
+            
+            # Prepare the message (with or without image URL)
+            if image_url:
+                message = f"🚨 {detection} Detected! View at {image_url}"
+                logger.info(f"Image uploaded successfully: {image_url}")
+            else:
+                message = f"🚨 {detection} Detected! (Image attachment failed)"
+                logger.warning("Image upload failed - will try direct sending if available")
+            
+            # Choose the appropriate method based on available services
+            if hasattr(self, 'use_twilio') and self.use_twilio:
+                # Twilio implementation with media attachment options
+                try:
+                    # Prepare message parameters
+                    message_params = {
+                        'body': message,
+                        'from_': self.twilio_whatsapp_number,
+                        'to': self.receiver_whatsapp_number,
+                    }
+                    
+                    # Try to add media if we have a direct image path and cloud upload failed
+                    if not image_url and hasattr(self, 'gcs_enabled') and self.gcs_enabled:
+                        try:
+                            # Create a temporary signed URL if image_url is not available
+                            blob = self.bucket.blob(f"temp_media/{datetime.now().strftime('%Y%m%d-%H%M%S')}.jpg")
+                            blob.upload_from_filename(str(image_path))
+                            
+                            # Generate a signed URL that expires in 1 hour
+                            signed_url = blob.generate_signed_url(
+                                version="v4",
+                                expiration=datetime.timedelta(hours=1),
+                                method="GET"
+                            )
+                            
+                            # Add media URL to message
+                            message_params['media_url'] = [signed_url]
+                            logger.info(f"Using temporary signed URL for media: {signed_url}")
+                        except Exception as media_error:
+                            logger.error(f"Media URL generation failed: {str(media_error)}")
+                    
+                    # Send the message
+                    message_response = self.twilio_client.messages.create(**message_params)
+                    logger.info(f"Twilio WhatsApp alert delivered: {message_response.sid}")
+                    return True
+                    
+                except Exception as e:
+                    logger.error(f"Twilio WhatsApp alert failed: {str(e)}")
+                    # Try fallback to CallMeBot if configured
+                    if hasattr(self, 'use_callmebot') and self.use_callmebot:
+                        logger.info("Falling back to CallMeBot...")
+                        return self._send_callmebot_message(message)
+                    return False
+                    
+            elif hasattr(self, 'use_callmebot') and self.use_callmebot:
+                # Use CallMeBot as primary or fallback
+                return self._send_callmebot_message(message)
+            else:
+                logger.error("No WhatsApp service is available")
+                return False
+                
+        except Exception as e:
+            logger.error(f"WhatsApp alert failed: {str(e)}")
             return False
-
-        message = f"🚨 {detection} Detected! View at {image_url}"
-        encoded_msg = quote_plus(message)
-        url = f"{self.base_url}?" \
-            f"phone={os.getenv('RECEIVER_WHATSAPP_NUMBER')}&" \
-            f"text={encoded_msg}&" \
-            f"apikey={os.getenv('CALLMEBOT_API_KEY')}"
-
-        response = requests.get(url, timeout=15)
-        if response.status_code == 200:
-            logger.info("WhatsApp alert delivered")
-            return True
-        logger.warning(
-            f"WhatsApp Alert Attempt failed: HTTP {response.status_code}")
-        return False
 
     def _send_telegram_alert(self, image_path, detection):
         """Handle Telegram notification with proper loop management"""
@@ -161,32 +332,55 @@ class NotificationService:
         success = False
         if self.whatsapp_enabled:
             test_msg = "🔧 System Test: Fire Detection System Operational"
-            success = self._send_callmebot_message(test_msg)
-        if self.telegram_bot:
+            
+            if hasattr(self, 'use_twilio') and self.use_twilio:
+                success = self._send_test_twilio_message(test_msg)
+            elif hasattr(self, 'use_callmebot') and self.use_callmebot:
+                success = self._send_callmebot_message(test_msg)
+                
+        if hasattr(self, 'telegram_bot') and self.telegram_bot:
             try:
                 test_image = Path(PROJECT_ROOT, 'data', "test_image.png")
                 success |= self.loop.run_until_complete(
                     self.telegram_bot.send_test_alert(test_image))
             except Exception as e:
                 logger.error(f"Telegram test failed: {e}")
-                success = False
+                
         return success
 
-    def _send_callmebot_message(self, message: str) -> bool:
-        """Core WhatsApp message sender"""
-        encoded_msg = quote_plus(message)
-        url = f"{self.base_url}?" \
-            f"phone={os.getenv('RECEIVER_WHATSAPP_NUMBER')}&" \
-            f"text={encoded_msg}&" \
-            f"apikey={os.getenv('CALLMEBOT_API_KEY')}"
-
-        response = requests.get(url, timeout=15)
-        if response.status_code == 200:
-            logger.info("WhatsApp alert delivered")
+    def _send_test_twilio_message(self, message):
+        """Send a test message through Twilio"""
+        try:
+            message_response = self.twilio_client.messages.create(
+                body=message,
+                from_=self.twilio_whatsapp_number,
+                to=self.receiver_whatsapp_number
+            )
+            logger.info(f"Twilio WhatsApp test message sent: {message_response.sid}")
             return True
-        logger.warning(
-            f"WhatsApp Alert Attempt failed: HTTP {response.status_code}")
-        return False
+        except Exception as e:
+            logger.error(f"Twilio WhatsApp test failed: {str(e)}")
+            return False
+
+    def _send_callmebot_message(self, message: str) -> bool:
+        """Core WhatsApp message sender for CallMeBot (legacy)"""
+        try:
+            encoded_msg = quote_plus(message)
+            url = f"{self.base_url}?" \
+                f"phone={os.getenv('RECEIVER_WHATSAPP_NUMBER')}&" \
+                f"text={encoded_msg}&" \
+                f"apikey={os.getenv('CALLMEBOT_API_KEY')}"
+
+            response = requests.get(url, timeout=15)
+            if response.status_code == 200:
+                logger.info("WhatsApp alert delivered via CallMeBot")
+                return True
+            logger.warning(
+                f"WhatsApp Alert Attempt failed: HTTP {response.status_code}")
+            return False
+        except Exception as e:
+            logger.error(f"CallMeBot error: {str(e)}")
+            return False
 
     def cleanup(self):
         """Proper cleanup of resources"""

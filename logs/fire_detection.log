@@ -10567,3 +10567,501 @@
 2025-05-06 13:26:47 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 13:26:47] "GET /api/detection_counts HTTP/1.1" 200 -
 2025-05-06 13:26:48 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 13:26:48] "HEAD /video_feed HTTP/1.1" 200 -
 2025-05-06 13:26:48 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 13:26:48] "GET /api/stats HTTP/1.1" 200 -
+2025-05-06 13:37:15 - src.fire_detector - INFO - Fire detector initialized successfully
+2025-05-06 13:37:15 - src.notification_service - INFO - WhatsApp service initialized
+2025-05-06 13:37:15 - src.notification_service - ERROR - Telegram setup failed: module 'telegram' has no attribute 'Bot'
+2025-05-06 13:37:15 - __main__ - INFO - Starting application
+2025-05-06 13:37:15 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.29.89.241:5000
+2025-05-06 13:37:15 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-06 13:37:15 - werkzeug - INFO -  * Restarting with stat
+2025-05-06 14:10:00 - src.notification_service - INFO - Twilio WhatsApp service initialized
+2025-05-06 14:10:00 - src.notification_service - ERROR - Telegram setup failed: module 'telegram' has no attribute 'Bot'
+2025-05-06 14:10:00 - whatsapp_test - INFO - Creating test image...
+2025-05-06 14:10:00 - whatsapp_test - INFO - Sending WhatsApp notification...
+2025-05-06 14:10:00 - src.notification_service - ERROR - Image upload failed: '_io.BufferedReader' object has no attribute 'translate'
+2025-05-06 14:10:00 - src.notification_service - ERROR - WhatsApp alert skipped: Image upload failed
+2025-05-06 14:10:00 - whatsapp_test - ERROR - ❌ Failed to send WhatsApp notification
+2025-05-06 14:10:00 - whatsapp_test - INFO - Cleaning up...
+2025-05-06 14:14:30 - src.notification_service - INFO - Twilio WhatsApp service initialized
+2025-05-06 14:14:30 - src.notification_service - ERROR - Telegram setup failed: module 'telegram' has no attribute 'Bot'
+2025-05-06 14:14:30 - whatsapp_test - INFO - Creating test image...
+2025-05-06 14:14:30 - whatsapp_test - INFO - Sending WhatsApp notification...
+2025-05-06 14:14:30 - src.notification_service - ERROR - Imgur Error: Imgur is temporarily over capacity. Please try again later.
+2025-05-06 14:14:30 - src.notification_service - ERROR - WhatsApp alert skipped: Image upload failed
+2025-05-06 14:14:30 - whatsapp_test - ERROR - ❌ Failed to send WhatsApp notification
+2025-05-06 14:14:30 - whatsapp_test - INFO - Cleaning up...
+2025-05-06 14:20:12 - src.fire_detector - INFO - Fire detector initialized successfully
+2025-05-06 14:20:12 - src.notification_service - INFO - Twilio WhatsApp service initialized
+2025-05-06 14:20:12 - src.notification_service - ERROR - Telegram setup failed: module 'telegram' has no attribute 'Bot'
+2025-05-06 14:20:12 - __main__ - INFO - Starting application
+2025-05-06 14:20:12 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.29.89.241:5000
+2025-05-06 14:20:12 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-06 14:20:12 - werkzeug - INFO -  * Restarting with stat
+2025-05-06 14:20:17 - src.fire_detector - INFO - Fire detector initialized successfully
+2025-05-06 14:20:17 - src.notification_service - INFO - Twilio WhatsApp service initialized
+2025-05-06 14:20:17 - src.notification_service - ERROR - Telegram setup failed: module 'telegram' has no attribute 'Bot'
+2025-05-06 14:20:17 - __main__ - INFO - Starting application
+2025-05-06 14:20:17 - werkzeug - WARNING -  * Debugger is active!
+2025-05-06 14:20:17 - werkzeug - INFO -  * Debugger PIN: 334-432-354
+2025-05-06 14:20:19 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:19] "HEAD /video_feed HTTP/1.1" 200 -
+2025-05-06 14:20:19 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:19] "GET /socket.io/?EIO=4&transport=polling&t=PQbmGBc HTTP/1.1" 200 -
+2025-05-06 14:20:19 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:19] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:20:19 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:19] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:20:19 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:19] "HEAD /video_feed HTTP/1.1" 200 -
+2025-05-06 14:20:19 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:19] "GET /api/stats HTTP/1.1" 200 -
+2025-05-06 14:20:19 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:19] "HEAD /video_feed HTTP/1.1" 200 -
+2025-05-06 14:20:19 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:19] "GET / HTTP/1.1" 200 -
+2025-05-06 14:20:19 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:19] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:20:19 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:19] "GET /static/dashboard.js HTTP/1.1" 200 -
+2025-05-06 14:20:19 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:19] "GET /static/dashboard.css HTTP/1.1" 200 -
+2025-05-06 14:20:19 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:19] "GET /static/logo.png HTTP/1.1" 200 -
+2025-05-06 14:20:19 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:19] "GET /socket.io/?EIO=4&transport=polling&t=PQbmH_F HTTP/1.1" 200 -
+2025-05-06 14:20:19 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:19] "GET /api/stats HTTP/1.1" 200 -
+2025-05-06 14:20:19 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:19] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:20:19 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:19] "GET /api/logs HTTP/1.1" 200 -
+2025-05-06 14:20:19 - __main__ - INFO - Socket client connected
+2025-05-06 14:20:19 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:19] "POST /socket.io/?EIO=4&transport=polling&t=PQbmI2U&sid=rABPpUk4kyT2JOEWAAAB HTTP/1.1" 200 -
+2025-05-06 14:20:19 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:19] "GET /socket.io/?EIO=4&transport=polling&t=PQbmI2Y&sid=rABPpUk4kyT2JOEWAAAB HTTP/1.1" 200 -
+2025-05-06 14:20:19 - __main__ - INFO - Started video processing from: /home/idntbite/Documents/real_time_fire_detection/data/gen_fire.mp4
+2025-05-06 14:20:19 - __main__ - INFO - Video processing stopped
+2025-05-06 14:20:19 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:19] "GET /video_feed HTTP/1.1" 200 -
+2025-05-06 14:20:22 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:22] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:20:23 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:23] "HEAD /video_feed HTTP/1.1" 200 -
+2025-05-06 14:20:25 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:25] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:20:25 - __main__ - INFO - Control action received: start
+2025-05-06 14:20:25 - __main__ - INFO - System started
+2025-05-06 14:20:25 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:25] "POST /api/control HTTP/1.1" 200 -
+2025-05-06 14:20:25 - __main__ - INFO - Started video processing from: /home/idntbite/Documents/real_time_fire_detection/data/gen_fire.mp4
+2025-05-06 14:20:25 - __main__ - INFO - Started video processing from: /home/idntbite/Documents/real_time_fire_detection/data/gen_fire.mp4
+2025-05-06 14:20:28 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:28] "HEAD /video_feed?t=1746537625757 HTTP/1.1" 200 -
+2025-05-06 14:20:28 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:28] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:20:29 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:29] "GET /api/stats HTTP/1.1" 200 -
+2025-05-06 14:20:31 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:31] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:20:34 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:34] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:20:35 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:35] "GET /video_feed?t=1746537625757 HTTP/1.1" 200 -
+2025-05-06 14:20:36 - __main__ - WARNING - 🔥 Fire Detected! Sending alert
+2025-05-06 14:20:36 - src.notification_service - ERROR - Imgur Error: Imgur is temporarily over capacity. Please try again later.
+2025-05-06 14:20:36 - src.notification_service - WARNING - Image upload failed - will try direct sending if available
+2025-05-06 14:20:37 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-05-06 14:20:37 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC6be7e4d3caa0f1fa33ce1bf2c401bb48/Messages.json
+2025-05-06 14:20:37 - twilio.http_client - INFO - Headers:
+2025-05-06 14:20:37 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-05-06 14:20:37 - twilio.http_client - INFO - Accept : application/json
+2025-05-06 14:20:37 - twilio.http_client - INFO - User-Agent : twilio-python/9.6.0 (Linux x86_64) Python/3.13.2
+2025-05-06 14:20:37 - twilio.http_client - INFO - X-Twilio-Client : python-9.6.0
+2025-05-06 14:20:37 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-05-06 14:20:37 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-05-06 14:20:37 - twilio.http_client - INFO - Response Status Code: 201
+2025-05-06 14:20:37 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '897', 'Connection': 'keep-alive', 'Date': 'Tue, 06 May 2025 13:20:37 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ5feb0ab4a952bf9ea9d0f720561b195c', 'Twilio-Request-Duration': '0.093', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 66709b7391664c627ccebe2d9c55dd7e.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'MAD51-C2', 'X-Amz-Cf-Id': '3gxcxw9dPWsm4PhI3g6wqmXgdpA8i3Pa31ym3DCTcqhgAOYq7rznCQ==', 'Vary': 'Origin'}
+2025-05-06 14:20:37 - src.notification_service - INFO - Twilio WhatsApp alert delivered: SM5feb0ab4a952bf9ea9d0f720561b195c
+2025-05-06 14:20:37 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:37] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:20:39 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:39] "GET /api/stats HTTP/1.1" 200 -
+2025-05-06 14:20:40 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:40] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:20:43 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:43] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:20:46 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:46] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:20:49 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:49] "GET /api/stats HTTP/1.1" 200 -
+2025-05-06 14:20:49 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:49] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:20:52 - __main__ - INFO - Control action received: stop
+2025-05-06 14:20:52 - __main__ - INFO - Video processing thread completed
+2025-05-06 14:20:52 - __main__ - INFO - System stopped
+2025-05-06 14:20:52 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:52] "POST /api/control HTTP/1.1" 200 -
+2025-05-06 14:20:52 - __main__ - INFO - Video processing stopped
+2025-05-06 14:20:53 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:53] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:20:53 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:53] "HEAD /video_feed?t=1746537625757 HTTP/1.1" 200 -
+2025-05-06 14:20:54 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:54] "GET /socket.io/?EIO=4&transport=websocket&sid=rABPpUk4kyT2JOEWAAAB HTTP/1.1" 200 -
+2025-05-06 14:20:54 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:54] "GET / HTTP/1.1" 200 -
+2025-05-06 14:20:54 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:54] "[36mGET /static/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-06 14:20:54 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:54] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-05-06 14:20:55 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:55] "GET /static/logo.png HTTP/1.1" 200 -
+2025-05-06 14:20:55 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:55] "GET /socket.io/?EIO=4&transport=polling&t=PQbmQiL HTTP/1.1" 200 -
+2025-05-06 14:20:55 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:55] "GET /api/stats HTTP/1.1" 200 -
+2025-05-06 14:20:55 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:55] "GET /api/logs HTTP/1.1" 200 -
+2025-05-06 14:20:55 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:55] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:20:55 - __main__ - INFO - Socket client connected
+2025-05-06 14:20:55 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:55] "POST /socket.io/?EIO=4&transport=polling&t=PQbmQky&sid=J6cwGZxAsJdMty95AAAD HTTP/1.1" 200 -
+2025-05-06 14:20:55 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:55] "GET /socket.io/?EIO=4&transport=polling&t=PQbmQk_&sid=J6cwGZxAsJdMty95AAAD HTTP/1.1" 200 -
+2025-05-06 14:20:55 - __main__ - INFO - Started video processing from: /home/idntbite/Documents/real_time_fire_detection/data/gen_fire.mp4
+2025-05-06 14:20:55 - __main__ - INFO - Video processing stopped
+2025-05-06 14:20:55 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:55] "GET /video_feed HTTP/1.1" 200 -
+2025-05-06 14:20:58 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:20:58] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:40:55 - src.fire_detector - INFO - Fire detector initialized successfully
+2025-05-06 14:40:55 - src.notification_service - INFO - Twilio WhatsApp service initialized
+2025-05-06 14:40:55 - src.notification_service - ERROR - Telegram setup failed: module 'telegram' has no attribute 'Bot'
+2025-05-06 14:40:55 - src.notification_service - WARNING - GCS credentials or bucket name missing, GCS storage disabled
+2025-05-06 14:40:55 - __main__ - INFO - Starting application
+2025-05-06 14:40:55 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.29.89.241:5000
+2025-05-06 14:40:55 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-06 14:40:55 - werkzeug - INFO -  * Restarting with stat
+2025-05-06 14:41:00 - src.fire_detector - INFO - Fire detector initialized successfully
+2025-05-06 14:41:00 - src.notification_service - INFO - Twilio WhatsApp service initialized
+2025-05-06 14:41:00 - src.notification_service - ERROR - Telegram setup failed: module 'telegram' has no attribute 'Bot'
+2025-05-06 14:41:00 - src.notification_service - WARNING - GCS credentials or bucket name missing, GCS storage disabled
+2025-05-06 14:41:00 - __main__ - INFO - Starting application
+2025-05-06 14:41:00 - werkzeug - WARNING -  * Debugger is active!
+2025-05-06 14:41:00 - werkzeug - INFO -  * Debugger PIN: 334-432-354
+2025-05-06 14:41:02 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:02] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:41:02 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:02] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:41:02 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:02] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:41:02 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:02] "GET /api/stats HTTP/1.1" 200 -
+2025-05-06 14:41:02 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:02] "GET /socket.io/?EIO=4&transport=polling&t=PQbr1D6 HTTP/1.1" 200 -
+2025-05-06 14:41:02 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:02] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:41:02 - __main__ - INFO - Socket client connected
+2025-05-06 14:41:02 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:02] "POST /socket.io/?EIO=4&transport=polling&t=PQbr1aO&sid=wQ4Yv-pSShYSvqlwAAAA HTTP/1.1" 200 -
+2025-05-06 14:41:02 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:02] "GET /socket.io/?EIO=4&transport=polling&t=PQbr1aV&sid=wQ4Yv-pSShYSvqlwAAAA HTTP/1.1" 200 -
+2025-05-06 14:41:02 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:02] "GET /socket.io/?EIO=4&transport=polling&t=PQbr1c2&sid=wQ4Yv-pSShYSvqlwAAAA HTTP/1.1" 200 -
+2025-05-06 14:41:05 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:05] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:41:08 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:08] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:41:11 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:11] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:41:12 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:12] "GET /api/stats HTTP/1.1" 200 -
+2025-05-06 14:41:14 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:14] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:41:17 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:17] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:41:20 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:20] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:41:22 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:22] "GET /api/stats HTTP/1.1" 200 -
+2025-05-06 14:41:23 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:23] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:41:26 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:26] "HEAD /video_feed HTTP/1.1" 200 -
+2025-05-06 14:41:26 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:26] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:41:28 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:28] "GET /socket.io/?EIO=4&transport=websocket&sid=wQ4Yv-pSShYSvqlwAAAA HTTP/1.1" 200 -
+2025-05-06 14:41:28 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:28] "GET / HTTP/1.1" 200 -
+2025-05-06 14:41:28 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:28] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-05-06 14:41:28 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:28] "[36mGET /static/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-06 14:41:28 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:28] "GET /static/logo.png HTTP/1.1" 200 -
+2025-05-06 14:41:28 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:28] "GET /socket.io/?EIO=4&transport=polling&t=PQbr7vM HTTP/1.1" 200 -
+2025-05-06 14:41:28 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:28] "GET /api/stats HTTP/1.1" 200 -
+2025-05-06 14:41:28 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:28] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:41:28 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:28] "GET /api/logs HTTP/1.1" 200 -
+2025-05-06 14:41:28 - __main__ - INFO - Socket client connected
+2025-05-06 14:41:28 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:28] "POST /socket.io/?EIO=4&transport=polling&t=PQbr7x6&sid=ue9OrZhqM8kCfoZOAAAC HTTP/1.1" 200 -
+2025-05-06 14:41:28 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:28] "GET /socket.io/?EIO=4&transport=polling&t=PQbr7x7&sid=ue9OrZhqM8kCfoZOAAAC HTTP/1.1" 200 -
+2025-05-06 14:41:28 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:28] "GET /socket.io/?EIO=4&transport=polling&t=PQbr7xz&sid=ue9OrZhqM8kCfoZOAAAC HTTP/1.1" 200 -
+2025-05-06 14:41:28 - __main__ - INFO - Started video processing from: /home/idntbite/Documents/real_time_fire_detection/data/gen_fire.mp4
+2025-05-06 14:41:28 - __main__ - INFO - Video processing stopped
+2025-05-06 14:41:28 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:28] "GET /video_feed HTTP/1.1" 200 -
+2025-05-06 14:41:29 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:29] "HEAD /video_feed HTTP/1.1" 200 -
+2025-05-06 14:41:29 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:29] "HEAD /video_feed HTTP/1.1" 200 -
+2025-05-06 14:41:31 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:31] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:41:32 - __main__ - INFO - Control action received: start
+2025-05-06 14:41:32 - __main__ - INFO - System started
+2025-05-06 14:41:32 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:32] "POST /api/control HTTP/1.1" 200 -
+2025-05-06 14:41:32 - __main__ - INFO - Started video processing from: /home/idntbite/Documents/real_time_fire_detection/data/gen_fire.mp4
+2025-05-06 14:41:32 - __main__ - INFO - Started video processing from: /home/idntbite/Documents/real_time_fire_detection/data/gen_fire.mp4
+2025-05-06 14:41:35 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:35] "HEAD /video_feed?t=1746538892741 HTTP/1.1" 200 -
+2025-05-06 14:41:35 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:35] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:41:38 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:38] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:41:38 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:38] "GET /api/stats HTTP/1.1" 200 -
+2025-05-06 14:41:41 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:41] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:41:41 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:41] "GET /video_feed?t=1746538892741 HTTP/1.1" 200 -
+2025-05-06 14:41:42 - __main__ - WARNING - 🔥 Fire Detected! Sending alert
+2025-05-06 14:41:42 - src.notification_service - ERROR - Imgur Error: Imgur is temporarily over capacity. Please try again later.
+2025-05-06 14:41:42 - src.notification_service - WARNING - Image upload failed - will try direct sending if available
+2025-05-06 14:41:43 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-05-06 14:41:43 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC6be7e4d3caa0f1fa33ce1bf2c401bb48/Messages.json
+2025-05-06 14:41:43 - twilio.http_client - INFO - Headers:
+2025-05-06 14:41:43 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-05-06 14:41:43 - twilio.http_client - INFO - Accept : application/json
+2025-05-06 14:41:43 - twilio.http_client - INFO - User-Agent : twilio-python/9.6.0 (Linux x86_64) Python/3.13.2
+2025-05-06 14:41:43 - twilio.http_client - INFO - X-Twilio-Client : python-9.6.0
+2025-05-06 14:41:43 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-05-06 14:41:43 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-05-06 14:41:43 - twilio.http_client - INFO - Response Status Code: 201
+2025-05-06 14:41:43 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '835', 'Connection': 'keep-alive', 'Date': 'Tue, 06 May 2025 13:41:43 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ2ca7e9b3cfc456b354808b9c247ad4a9', 'Twilio-Request-Duration': '0.116', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 e9c760453b6eccd1556a68a55a4a90c4.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'MAD51-C2', 'X-Amz-Cf-Id': '0ATt-sM4-x-AxpeXpsONmrGpjuqnWz6ujR51drR0tPNrY0FFclPA8A==', 'Vary': 'Origin'}
+2025-05-06 14:41:43 - src.notification_service - INFO - Twilio WhatsApp alert delivered: SM2ca7e9b3cfc456b354808b9c247ad4a9
+2025-05-06 14:41:44 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:44] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:41:47 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:47] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:41:48 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:48] "GET /api/stats HTTP/1.1" 200 -
+2025-05-06 14:41:50 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:50] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:41:53 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:53] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:41:55 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:55] "HEAD /video_feed?t=1746538892741 HTTP/1.1" 200 -
+2025-05-06 14:41:56 - __main__ - INFO - Control action received: stop
+2025-05-06 14:41:56 - __main__ - INFO - Video processing stopped
+2025-05-06 14:41:56 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:56] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:41:56 - __main__ - INFO - Video processing thread completed
+2025-05-06 14:41:56 - __main__ - INFO - System stopped
+2025-05-06 14:41:56 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:56] "POST /api/control HTTP/1.1" 200 -
+2025-05-06 14:41:57 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:57] "HEAD /video_feed?t=1746538892741 HTTP/1.1" 200 -
+2025-05-06 14:41:58 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:58] "GET /socket.io/?EIO=4&transport=websocket&sid=ue9OrZhqM8kCfoZOAAAC HTTP/1.1" 200 -
+2025-05-06 14:41:58 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:58] "GET / HTTP/1.1" 200 -
+2025-05-06 14:41:58 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:58] "[36mGET /static/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-06 14:41:58 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:58] "GET /static/dashboard.css HTTP/1.1" 200 -
+2025-05-06 14:41:58 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:58] "GET /static/logo.png HTTP/1.1" 200 -
+2025-05-06 14:41:58 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:58] "GET /socket.io/?EIO=4&transport=polling&t=PQbrFEm HTTP/1.1" 200 -
+2025-05-06 14:41:58 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:58] "GET /api/stats HTTP/1.1" 200 -
+2025-05-06 14:41:58 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:58] "GET /api/logs HTTP/1.1" 200 -
+2025-05-06 14:41:58 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:58] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:41:59 - __main__ - INFO - Socket client connected
+2025-05-06 14:41:59 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:59] "POST /socket.io/?EIO=4&transport=polling&t=PQbrFFi&sid=cgEf3paF6zpLM_1uAAAE HTTP/1.1" 200 -
+2025-05-06 14:41:59 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:59] "GET /socket.io/?EIO=4&transport=polling&t=PQbrFFj&sid=cgEf3paF6zpLM_1uAAAE HTTP/1.1" 200 -
+2025-05-06 14:41:59 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:59] "HEAD /video_feed HTTP/1.1" 200 -
+2025-05-06 14:41:59 - __main__ - INFO - Started video processing from: /home/idntbite/Documents/real_time_fire_detection/data/gen_fire.mp4
+2025-05-06 14:41:59 - __main__ - INFO - Video processing stopped
+2025-05-06 14:41:59 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:59] "GET /video_feed HTTP/1.1" 200 -
+2025-05-06 14:41:59 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:41:59] "HEAD /video_feed HTTP/1.1" 200 -
+2025-05-06 14:42:00 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:42:00] "HEAD /video_feed HTTP/1.1" 200 -
+2025-05-06 14:42:01 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:42:01] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:42:03 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:42:03] "HEAD /video_feed HTTP/1.1" 200 -
+2025-05-06 14:42:04 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:42:04] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:42:06 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:42:06] "HEAD /video_feed HTTP/1.1" 200 -
+2025-05-06 14:42:07 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:42:07] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:42:08 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:42:08] "GET /api/stats HTTP/1.1" 200 -
+2025-05-06 14:42:10 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:42:10] "GET /socket.io/?EIO=4&transport=websocket&sid=cgEf3paF6zpLM_1uAAAE HTTP/1.1" 200 -
+2025-05-06 14:42:10 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:42:10] "GET /socket.io/?EIO=4&transport=polling&t=PQbrIAv HTTP/1.1" 200 -
+2025-05-06 14:42:10 - __main__ - INFO - Socket client connected
+2025-05-06 14:42:10 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:42:10] "POST /socket.io/?EIO=4&transport=polling&t=PQbrIBG&sid=IJD4TEiSi2Qsj5DVAAAG HTTP/1.1" 200 -
+2025-05-06 14:42:10 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:42:10] "GET /socket.io/?EIO=4&transport=polling&t=PQbrIBI&sid=IJD4TEiSi2Qsj5DVAAAG HTTP/1.1" 200 -
+2025-05-06 14:42:10 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:42:10] "GET /socket.io/?EIO=4&transport=polling&t=PQbrIBb&sid=IJD4TEiSi2Qsj5DVAAAG HTTP/1.1" 200 -
+2025-05-06 14:42:10 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:42:10] "GET /socket.io/?EIO=4&transport=polling&t=PQbrIBk&sid=IJD4TEiSi2Qsj5DVAAAG HTTP/1.1" 200 -
+2025-05-06 14:42:10 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:42:10] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:42:13 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:42:13] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:42:16 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:42:16] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:42:18 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:42:18] "GET /api/stats HTTP/1.1" 200 -
+2025-05-06 14:42:19 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:42:19] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:42:22 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:42:22] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:42:25 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:42:25] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:42:28 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:42:28] "GET /api/stats HTTP/1.1" 200 -
+2025-05-06 14:42:29 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:42:29] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:42:32 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:42:32] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:42:35 - werkzeug - INFO - 127.0.0.1 - - [06/May/2025 14:42:35] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-06 14:47:43 - src.fire_detector - INFO - Fire detector initialized successfully
+2025-05-06 14:47:43 - src.notification_service - INFO - Twilio WhatsApp service initialized
+2025-05-06 14:47:43 - src.notification_service - ERROR - Telegram setup failed: module 'telegram' has no attribute 'Bot'
+2025-05-06 14:47:43 - src.notification_service - WARNING - GCS credentials or bucket name missing, GCS storage disabled
+2025-05-06 14:47:43 - __main__ - INFO - Starting application
+2025-05-06 14:47:43 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.29.89.241:5000
+2025-05-06 14:47:43 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-06 14:47:43 - werkzeug - INFO -  * Restarting with stat
+2025-05-09 12:46:09 - src.fire_detector - INFO - Fire detector initialized successfully
+2025-05-09 12:46:09 - src.notification_service - INFO - Twilio WhatsApp service initialized
+2025-05-09 12:46:09 - src.notification_service - ERROR - Telegram setup failed: module 'telegram' has no attribute 'Bot'
+2025-05-09 12:46:09 - src.notification_service - WARNING - GCS credentials or bucket name missing, GCS storage disabled
+2025-05-09 12:46:09 - __main__ - INFO - Starting application
+2025-05-09 12:46:09 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.29.89.241:5000
+2025-05-09 12:46:09 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-09 12:46:09 - werkzeug - INFO -  * Restarting with stat
+2025-05-09 12:46:12 - src.fire_detector - INFO - Fire detector initialized successfully
+2025-05-09 12:46:12 - src.notification_service - INFO - Twilio WhatsApp service initialized
+2025-05-09 12:46:12 - src.notification_service - ERROR - Telegram setup failed: module 'telegram' has no attribute 'Bot'
+2025-05-09 12:46:12 - src.notification_service - WARNING - GCS credentials or bucket name missing, GCS storage disabled
+2025-05-09 12:46:12 - __main__ - INFO - Starting application
+2025-05-09 12:46:12 - werkzeug - WARNING -  * Debugger is active!
+2025-05-09 12:46:12 - werkzeug - INFO -  * Debugger PIN: 334-432-354
+2025-05-09 12:46:15 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:15] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:46:15 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:15] "GET /socket.io/?EIO=4&transport=polling&t=PQqtVzT HTTP/1.1" 200 -
+2025-05-09 12:46:15 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:15] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:46:15 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:15] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:46:16 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:16] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:46:16 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:16] "HEAD /video_feed HTTP/1.1" 200 -
+2025-05-09 12:46:16 - __main__ - INFO - Socket client connected
+2025-05-09 12:46:16 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:16] "POST /socket.io/?EIO=4&transport=polling&t=PQqtXVD&sid=6OEb8muYa44BwxwEAAAA HTTP/1.1" 200 -
+2025-05-09 12:46:16 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:16] "GET /socket.io/?EIO=4&transport=polling&t=PQqtXVR&sid=6OEb8muYa44BwxwEAAAA HTTP/1.1" 200 -
+2025-05-09 12:46:16 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:16] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:46:16 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:16] "GET /socket.io/?EIO=4&transport=polling&t=PQqtXZk&sid=6OEb8muYa44BwxwEAAAA HTTP/1.1" 200 -
+2025-05-09 12:46:17 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:17] "GET /socket.io/?EIO=4&transport=websocket&sid=6OEb8muYa44BwxwEAAAA HTTP/1.1" 200 -
+2025-05-09 12:46:17 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:17] "GET / HTTP/1.1" 200 -
+2025-05-09 12:46:18 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:18] "GET /static/dashboard.css HTTP/1.1" 200 -
+2025-05-09 12:46:18 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:18] "GET /static/dashboard.js HTTP/1.1" 200 -
+2025-05-09 12:46:18 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:18] "GET /static/logo.png HTTP/1.1" 200 -
+2025-05-09 12:46:18 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:18] "GET /socket.io/?EIO=4&transport=polling&t=PQqtY9a HTTP/1.1" 200 -
+2025-05-09 12:46:18 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:18] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:46:18 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:18] "GET /api/logs HTTP/1.1" 200 -
+2025-05-09 12:46:18 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:18] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:46:19 - __main__ - INFO - Started video processing from: /home/idntbite/Documents/real_time_fire_detection/data/gen_fire.mp4
+2025-05-09 12:46:19 - __main__ - INFO - Video processing stopped
+2025-05-09 12:46:19 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:19] "GET /video_feed HTTP/1.1" 200 -
+2025-05-09 12:46:22 - __main__ - INFO - Socket client connected
+2025-05-09 12:46:22 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:22] "POST /socket.io/?EIO=4&transport=polling&t=PQqtYD6&sid=ETbbSg8JfgtV0JdDAAAC HTTP/1.1" 200 -
+2025-05-09 12:46:22 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:22] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:46:22 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:22] "HEAD /video_feed HTTP/1.1" 200 -
+2025-05-09 12:46:22 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:22] "GET /socket.io/?EIO=4&transport=polling&t=PQqtYD7&sid=ETbbSg8JfgtV0JdDAAAC HTTP/1.1" 200 -
+2025-05-09 12:46:25 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:25] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:46:28 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:28] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:46:28 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:28] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:46:31 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:31] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:46:34 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:34] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:46:37 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:37] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:46:39 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:39] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:46:40 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:40] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:46:43 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:43] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:46:46 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:46] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:46:49 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:49] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:46:49 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:49] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:46:52 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:52] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:46:55 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:55] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:46:58 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:58] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:46:59 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:46:59] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:47:01 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:47:01] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:47:04 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:47:04] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:47:07 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:47:07] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:47:09 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:47:09] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:47:10 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:47:10] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:47:14 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:47:14] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:47:17 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:47:17] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:47:19 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:47:19] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:47:20 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:47:20] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:47:23 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:47:23] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:47:26 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:47:26] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:47:29 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:47:29] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:47:29 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:47:29] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:47:32 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:47:32] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:47:35 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:47:35] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:47:38 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:47:38] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:47:39 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:47:39] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:47:41 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:47:41] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:47:44 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:47:44] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:47:47 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:47:47] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:47:49 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:47:49] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:47:50 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:47:50] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:47:53 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:47:53] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:47:57 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:47:57] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:48:00 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:00] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:48:00 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:00] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:48:02 - __main__ - INFO - Control action received: start
+2025-05-09 12:48:02 - __main__ - INFO - System started
+2025-05-09 12:48:02 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:02] "POST /api/control HTTP/1.1" 200 -
+2025-05-09 12:48:02 - __main__ - INFO - Started video processing from: /home/idntbite/Documents/real_time_fire_detection/data/gen_fire.mp4
+2025-05-09 12:48:02 - __main__ - INFO - Started video processing from: /home/idntbite/Documents/real_time_fire_detection/data/gen_fire.mp4
+2025-05-09 12:48:05 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:05] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:48:06 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:06] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:48:10 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:10] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:48:10 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:10] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:48:11 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:11] "HEAD /video_feed?t=1746791282461 HTTP/1.1" 200 -
+2025-05-09 12:48:11 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:11] "GET /video_feed?t=1746791282461 HTTP/1.1" 200 -
+2025-05-09 12:48:11 - __main__ - WARNING - 🔥 Fire Detected! Sending alert
+2025-05-09 12:48:11 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:11] "HEAD /video_feed?t=1746791282461 HTTP/1.1" 200 -
+2025-05-09 12:48:12 - src.notification_service - ERROR - Imgur Error: Imgur is temporarily over capacity. Please try again later.
+2025-05-09 12:48:12 - src.notification_service - WARNING - Image upload failed - will try direct sending if available
+2025-05-09 12:48:12 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-05-09 12:48:12 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC6be7e4d3caa0f1fa33ce1bf2c401bb48/Messages.json
+2025-05-09 12:48:12 - twilio.http_client - INFO - Headers:
+2025-05-09 12:48:12 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-05-09 12:48:12 - twilio.http_client - INFO - Accept : application/json
+2025-05-09 12:48:12 - twilio.http_client - INFO - User-Agent : twilio-python/9.6.0 (Linux x86_64) Python/3.13.2
+2025-05-09 12:48:12 - twilio.http_client - INFO - X-Twilio-Client : python-9.6.0
+2025-05-09 12:48:12 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-05-09 12:48:12 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-05-09 12:48:12 - twilio.http_client - INFO - Response Status Code: 201
+2025-05-09 12:48:12 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '835', 'Connection': 'keep-alive', 'Date': 'Fri, 09 May 2025 11:48:12 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQc74d381c1f7211d3ad98f5c7edd684c0', 'Twilio-Request-Duration': '0.111', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 c040df466db8351d337f6dca52ab08e8.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'MAD51-C3', 'X-Amz-Cf-Id': 'nx7XJ8gWaAYM8ihsVmiHUXs5nxb3kMjG7sEBpWUfSyRVMya97-r59Q==', 'Vary': 'Origin'}
+2025-05-09 12:48:12 - src.notification_service - INFO - Twilio WhatsApp alert delivered: SMc74d381c1f7211d3ad98f5c7edd684c0
+2025-05-09 12:48:13 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:13] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:48:14 - __main__ - INFO - Control action received: stop
+2025-05-09 12:48:14 - __main__ - INFO - Video processing thread completed
+2025-05-09 12:48:14 - __main__ - INFO - System stopped
+2025-05-09 12:48:14 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:14] "POST /api/control HTTP/1.1" 200 -
+2025-05-09 12:48:14 - __main__ - INFO - Video processing stopped
+2025-05-09 12:48:16 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:16] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:48:16 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:16] "GET /socket.io/?EIO=4&transport=websocket&sid=ETbbSg8JfgtV0JdDAAAC HTTP/1.1" 200 -
+2025-05-09 12:48:16 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:16] "GET / HTTP/1.1" 200 -
+2025-05-09 12:48:16 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:16] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-05-09 12:48:16 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:16] "[36mGET /static/dashboard.js HTTP/1.1[0m" 304 -
+2025-05-09 12:48:16 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:16] "GET /static/logo.png HTTP/1.1" 200 -
+2025-05-09 12:48:16 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:16] "GET /socket.io/?EIO=4&transport=polling&t=PQqt-qB HTTP/1.1" 200 -
+2025-05-09 12:48:16 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:16] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:48:16 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:16] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:48:16 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:16] "GET /api/logs HTTP/1.1" 200 -
+2025-05-09 12:48:16 - __main__ - INFO - Socket client connected
+2025-05-09 12:48:16 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:16] "POST /socket.io/?EIO=4&transport=polling&t=PQqt-rk&sid=4p7Nu4jr9IbXAdnrAAAE HTTP/1.1" 200 -
+2025-05-09 12:48:16 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:16] "GET /socket.io/?EIO=4&transport=polling&t=PQqt-rl&sid=4p7Nu4jr9IbXAdnrAAAE HTTP/1.1" 200 -
+2025-05-09 12:48:16 - __main__ - INFO - Started video processing from: /home/idntbite/Documents/real_time_fire_detection/data/gen_fire.mp4
+2025-05-09 12:48:16 - __main__ - INFO - Video processing stopped
+2025-05-09 12:48:16 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:16] "GET /video_feed HTTP/1.1" 200 -
+2025-05-09 12:48:19 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:19] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:48:22 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:22] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:48:25 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:25] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:48:26 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:26] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:48:28 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:28] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:48:31 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:31] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:48:34 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:34] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:48:35 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:35] "HEAD /video_feed HTTP/1.1" 200 -
+2025-05-09 12:48:36 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:36] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:48:38 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:38] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:48:41 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:41] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:48:44 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:44] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:48:46 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:46] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:48:47 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:47] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:48:50 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:50] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:48:54 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:54] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:48:56 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:56] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:48:57 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:48:57] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:49:00 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:49:00] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:49:03 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:49:03] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:49:06 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:49:06] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:49:07 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:49:07] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:49:10 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:49:10] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:49:13 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:49:13] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:49:16 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:49:16] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:49:17 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:49:17] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:49:20 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:49:20] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:49:23 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:49:23] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:49:26 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:49:26] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:49:26 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:49:26] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:49:29 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:49:29] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:49:32 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:49:32] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:49:36 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:49:36] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:49:37 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:49:37] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:49:39 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:49:39] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:49:42 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:49:42] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:49:45 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:49:45] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:49:47 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:49:47] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:49:48 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:49:48] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:49:51 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:49:51] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:49:54 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:49:54] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:49:57 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:49:57] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:49:57 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:49:57] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:50:00 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:50:00] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:50:03 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:50:03] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:50:06 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:50:06] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:50:07 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:50:07] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:50:09 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:50:09] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:50:12 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:50:12] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:50:15 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:50:15] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:50:17 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:50:17] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:50:18 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:50:18] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:50:21 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:50:21] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:50:24 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:50:24] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:50:27 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:50:27] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:50:28 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:50:28] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:50:31 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:50:31] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:50:34 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:50:34] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:50:37 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:50:37] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:50:38 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:50:38] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:50:41 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:50:41] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:50:44 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:50:44] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:50:47 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:50:47] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:50:48 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:50:48] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:50:51 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:50:51] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:50:54 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:50:54] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:50:57 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:50:57] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:50:58 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:50:58] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:51:01 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:51:01] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:51:04 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:51:04] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:51:07 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:51:07] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:51:08 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:51:08] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:51:12 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:51:12] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:51:15 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:51:15] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:51:17 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:51:17] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:51:18 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:51:18] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:51:21 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:51:21] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:51:24 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:51:24] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:51:27 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:51:27] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:51:27 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:51:27] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:51:30 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:51:30] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:51:33 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:51:33] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:51:36 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:51:36] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:51:37 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:51:37] "GET /api/stats HTTP/1.1" 200 -
+2025-05-09 12:51:40 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:51:40] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:51:43 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:51:43] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:51:46 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:51:46] "GET /api/detection_counts HTTP/1.1" 200 -
+2025-05-09 12:51:47 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 12:51:47] "GET /api/stats HTTP/1.1" 200 -

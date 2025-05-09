@@ -9,3 +9,5 @@ pytest
 flask
 flask-socketio
 eventlet
+twilio
+google-cloud-storage
